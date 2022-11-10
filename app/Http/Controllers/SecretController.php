@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Secret;
 use Illuminate\Http\Request;
+use Inertia\Inertia;
 
 class SecretController extends Controller
 {
@@ -14,7 +15,9 @@ class SecretController extends Controller
      */
     public function index()
     {
-        //
+        $secrets = Secret::all();
+
+        return Inertia::render('Secrets', compact('secrets'));
     }
 
     /**

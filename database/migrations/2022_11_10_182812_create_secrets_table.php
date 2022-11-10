@@ -16,8 +16,8 @@ return new class extends Migration
         Schema::create('secrets', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')
-                ->onDelete('CASCADE')
-                ->constrained();
+                ->constrained()
+                ->onDelete('CASCADE');
             $table->string('title', 50);
             $table->longText('secret_text');
             $table->timestamps();

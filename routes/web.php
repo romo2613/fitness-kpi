@@ -37,4 +37,5 @@ Route::middleware([
     // })->name('dashboard');
 
     Route::get('/secretos', [SecretController::class, 'index'])->name('secret.index');
+    Route::get('/secreto/{id}', [SecretController::class, 'showSecret'])->name('secret.show');
 });

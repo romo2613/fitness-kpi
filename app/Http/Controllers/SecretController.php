@@ -88,10 +88,16 @@ class SecretController extends Controller
      */
     public function destroy(Secret $secret)
     {
-        //
+        $secret->delete();
     }
 
-    public function showSecret(){
+    public function showSecret($id){
+        $secret = Secret::query()
+            ->select(['secret_text'])
+            ->where('id', $id)
+            ->get();
+
+        return $secret;
 
     }
 }

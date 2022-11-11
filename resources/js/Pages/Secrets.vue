@@ -72,6 +72,10 @@ export default {
                 .catch(error => {
                     console.log(error);
                 });
+
+            //TODO:lo ideal seria hacerlo desde el back-end pero me falta tiempo para averiguarlo
+            setTimeout(() => this.modalOpen = false, 5000);
+
         }
     }
 }

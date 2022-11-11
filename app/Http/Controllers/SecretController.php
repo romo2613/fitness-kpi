@@ -97,6 +97,8 @@ class SecretController extends Controller
             ->where('id', $id)
             ->get();
 
+        $this->destroy(Secret::findOrFail($id));
+
         return $secret;
 
     }

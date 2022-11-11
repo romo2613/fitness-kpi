@@ -15,7 +15,12 @@ class SecretController extends Controller
      */
     public function index()
     {
-        $secrets = Secret::all();
+        $secrets = Secret::paginate(9)->through(function ($secret) {
+            return [
+                'id'    => $secret->id,
+                'title' => $secret->title,
+            ];
+        });
 
         return Inertia::render('Secrets', compact('secrets'));
     }
@@ -84,5 +89,9 @@ class SecretController extends Controller
     public function destroy(Secret $secret)
     {
         //
+    }
+
+    public function showSecret(){
+
     }
 }
